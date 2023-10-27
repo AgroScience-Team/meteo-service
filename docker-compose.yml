@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  client-backend:
+    container_name: meteo-back
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      service-db:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT= 8000
+      - SPRING.DATASOURCE.URL=jdbc:postgresql://service-db/meteo
+
+  service-db:
+    image: bitnami/postgresql:14
+    container_name: meteo-db
+    env_file:
+      - ./src/main/resources/application.properties
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U aobubu" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  pgdbdata:
