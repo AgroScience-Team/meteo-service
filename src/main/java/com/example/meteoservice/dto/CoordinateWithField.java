@@ -9,7 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Coordinate {
+public class CoordinateWithField {
     private Double longitude;
     private Double latitude;
+    private Long id;
 }

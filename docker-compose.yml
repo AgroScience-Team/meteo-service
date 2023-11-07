@@ -31,5 +31,10 @@ services:
       timeout: 5s
       retries: 3
 
+networks:
+  default:
+    external:
+      name: agronetwork
+
 volumes:
   pgdbdata:

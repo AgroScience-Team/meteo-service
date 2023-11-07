@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MeteoRepository extends JpaRepository<Meteo, Long> {
     List<Meteo> findByFieldId(Long fieldId);
+
+    void deleteByFieldId(Long fieldId);
 }

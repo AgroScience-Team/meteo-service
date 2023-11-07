@@ -1,10 +1,12 @@
 package com.example.meteoservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -13,7 +15,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class MeteoResponse {
-    private LocalDateTime lastUpdate;
+    private LocalDate lastUpdate;
     private Long fieldId;
     private Double temperature;
     private Double humidity;
