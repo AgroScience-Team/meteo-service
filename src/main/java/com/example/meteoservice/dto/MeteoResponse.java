@@ -15,7 +15,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class MeteoResponse {
-    private LocalDate lastUpdate;
+    private LocalDate day;
     private Long fieldId;
     private Double temperature;
     private Double humidity;

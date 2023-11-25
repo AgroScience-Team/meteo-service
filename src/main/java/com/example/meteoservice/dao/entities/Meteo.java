@@ -20,8 +20,8 @@ public class Meteo {
     @Column(name = "field_id", nullable = false)
     private Long fieldId;
 
-    @Column(name = "last_update")
-    private LocalDate lastUpdate;
+    @Column(name = "day")
+    private LocalDate day;
 
     @Column(name = "humidity")
     private Double humidity;
