@@ -1,0 +1,10 @@
+com/example/meteoservice/controllers/MeteoController.class
+com/example/meteoservice/dto/MeteoResponse.class
+com/example/meteoservice/MeteoServiceApplication.class
+com/example/meteoservice/dao/repositories/MeteoRepository.class
+com/example/meteoservice/services/MeteoService.class
+com/example/meteoservice/mappers/MeteoMapper.class
+com/example/meteoservice/dao/entities/Meteo.class
+com/example/meteoservice/dto/CoordinateWithField.class
+com/example/meteoservice/configuration/AppConfig.class
+com/example/meteoservice/mappers/MeteoMapperImpl.class
