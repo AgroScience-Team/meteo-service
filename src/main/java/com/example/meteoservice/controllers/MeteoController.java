@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/vi/meteo")
+@RequestMapping(path = "api/v1/meteo")
 public class MeteoController {
     private final MeteoService meteoService;
     private final MeteoMapper meteoMapper;
