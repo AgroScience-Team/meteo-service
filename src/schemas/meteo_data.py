@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 
 from pydantic import BaseModel
@@ -27,7 +28,7 @@ class MeteoDataParseSchema(BaseModel):
 
 
 class MeteoDataCreateSchema(BaseModel):
-    field_id: int
+    field_id: uuid.UUID
     date_time: datetime
 
     temperature: float | None

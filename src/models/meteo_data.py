@@ -1,6 +1,7 @@
+import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, Float, ForeignKey, Integer
+from sqlalchemy import DateTime, Float, ForeignKey, Uuid
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.models.base import Base
@@ -9,8 +10,8 @@ from src.models.base import Base
 class MeteoData(Base):
     __tablename__ = "meteo_data"
     
-    id: Mapped[int] = mapped_column(primary_key=True)
-    field_id: Mapped[int] = mapped_column(Integer, ForeignKey("fields.id"), index=True)
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
+    field_id: Mapped[uuid.UUID] = mapped_column(Uuid, ForeignKey("fields.id"), index=True)
     date_time: Mapped[datetime] = mapped_column(DateTime)
     
     temperature: Mapped[float] = mapped_column(Float, nullable=True)
