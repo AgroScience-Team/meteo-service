@@ -52,7 +52,7 @@ class MeteoDataCreateSchema(BaseModel):
 
 
 class MeteoDataReadSchema(MeteoDataCreateSchema):
-    id: int
+    id: uuid.UUID
 
 
 class MeteoDataPreviewSchema(BaseModel):
