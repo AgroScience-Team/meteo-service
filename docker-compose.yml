@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:15
-    container_name: db-meteo
+    container_name: meteo-db
     env_file:
       - .env
     ports:
@@ -17,7 +17,7 @@ services:
 
   migrations:
     build: .
-    container_name: migrations-tool
+    container_name: meteo-service-migrations-tool
     command: sh -c "alembic upgrade head"
     depends_on:
       db:
@@ -28,7 +28,7 @@ services:
   web:
     build: .
     container_name: meteo-service
-    command: sh -c "uvicorn --factory src.main:create_app --host=0.0.0.0 --port=8003"
+    command: sh -c "uvicorn --factory src.main:create_app --host=0.0.0.0 --port=8080"
     depends_on:
       db:
         condition: service_healthy
@@ -37,7 +37,7 @@ services:
     env_file:
       - .env
     ports:
-      - 8003:8003
+      - 8003:8080
     restart: always
 
 volumes:
